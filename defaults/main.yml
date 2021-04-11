@@ -177,3 +177,6 @@ mailserver_have_cert: False
 
 mailserver_have_antispam: False
 mailserver_have_mailman: False
+
+# support for ipv6 only hosts 
+ipv6_only: false
