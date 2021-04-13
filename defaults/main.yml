@@ -68,8 +68,8 @@ mailserver_ldap_basedn: "cn=accounts,dc=test,dc=example,dc=com"
 mailserver_ldap_config_basedn: "cn=mailserver,cn=etc,dc=test,dc=example,dc=com"
 
 # Dovecot LDAP filters
-mailserver_ldap_passfilter: "(uid=%n)"
-mailserver_ldap_userfilter: "(&(objectClass=mailboxEntity)(uid=%n))"
+mailserver_ldap_passfilter: "(|(uid=%n)(primaryMail=%u))"
+mailserver_ldap_userfilter: "(&(objectClass=mailboxEntity)(|(primaryMail=%u)(uid=%n)))"
 mailserver_ldap_iteratefilter: "(objectClass=mailboxEntity)"
 
 # Postfix LDAP filters
