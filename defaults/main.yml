@@ -76,6 +76,9 @@ mailserver_ldap_iteratefilter: "(objectClass=mailboxEntity)"
 mailserver_ldap_usermailfilter: "(&(objectClass=mailReceiverEntity)(primaryMail=%s))"
 mailserver_ldap_usermailattr: "primaryMail"
 
+# Catchall alias username
+mailserver_ldap_catchallalias: catchall
+
 # Enable GSSAPI authentication for users.
 mailserver_use_gssapi: False
 mailserver_keytab_location: /etc/dovecot/kerberos.keytab

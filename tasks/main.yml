@@ -162,6 +162,7 @@
       mode: 0644
     with_items:
       - ldap-aliases.cf
+      - ldap-aliases-catchall.cf
       - ldap-senders.cf
       - ldap-host-senders.cf
       - ldap-vdomains.cf

@@ -246,7 +246,8 @@ header_checks = pcre:/etc/postfix/cleanup-headers
 
 # Alias maps
 # See http://serverfault.com/a/644393/371842 as to why we need virtual_
-virtual_alias_maps = {{ mailserver_config_method }}:/etc/postfix/{{ mailserver_config_method }}-aliases.cf
+virtual_alias_maps = {{ mailserver_config_method }}:/etc/postfix/{{ mailserver_config_method }}-aliases.cf,
+    proxy:{{ mailserver_config_method }}:/etc/postfix/{{ mailserver_config_method }}-aliases-catchall.cf
 # Do not load normal aliases...
 alias_maps =
 
@@ -254,7 +255,8 @@ alias_maps =
 # If we don't do this, Postifx would only figure out that a user does not exist when
 # handing the mail over to Dovecot via LMTP, at which point the original SMTP connection
 # would already be closed, leading to a bounce from *this* mailserver.
-local_recipient_maps = proxy:ldap:/etc/postfix/ldap-map.cf
+local_recipient_maps = proxy:ldap:/etc/postfix/ldap-map.cf,
+    proxy:ldap:/etc/postfix/ldap-aliases-catchall.cf
 
 # ADDRESS EXTENSIONS (e.g., user+foo)
 #

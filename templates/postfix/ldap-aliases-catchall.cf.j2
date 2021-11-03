@@ -1,0 +1,10 @@
+############################################################################
+########### Managed by ansible (role: mailserver), do not edit! ############
+############################################################################
+
+{% include './templates/postfix/ldap-conn.j2' %}
+
+search_base = {{ mailserver_ldap_basedn }}
+query_filter = (&(alias={{ mailserver_ldap_catchallalias }}@%d)(!(|(alias=%s)(primaryMail=%s))))
+special_result_attribute = member
+result_attribute = uid
